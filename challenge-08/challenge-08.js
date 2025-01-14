@@ -112,3 +112,4 @@ console.log(subtraction(10, 7));
 console.log(multiplication(2, 5));
 console.log(division(30, 5));
 console.log(mod(4, 2));
+console.log(sum(4, 2));
