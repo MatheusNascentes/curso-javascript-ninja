@@ -196,4 +196,6 @@ a mensagem de erro será mostrada no console.
   } else {
     console.log(showErrorMessage(invalidOperation));
   }
+
+  // Luiz
 })();
