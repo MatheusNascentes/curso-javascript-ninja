@@ -37,15 +37,21 @@ curso para fazer isso funcionar corretamente :)
 console.log para cada formato.
 */
   console.log("\nNome convertido à partir de um slug:");
-  var fullName = "luiz-ramos";
+  var fullName = "luiz-fellipe-ramos";
+
+  var newFullName = fullName.split("-").map(function (name) {
+    return name[0].toUpperCase() + name.slice(1);
+  });
   console.log(fullName);
-  var firstLetterName = fullName.slice(0, 1).toUpperCase();
+  console.log(newFullName.join(" "));
+
+  /* var firstLetterName = fullName.slice(0, 1).toUpperCase();
   var firstLetterName2 = fullName.slice(5, 6).toUpperCase();
 
   var restFirstName = fullName.slice(1, 4);
   var restSecondtName = fullName.slice(6);
 
-  console.log(firstLetterName.concat(restFirstName) + " " + firstLetterName2.concat(restSecondtName));
+  console.log(firstLetterName.concat(restFirstName) + " " + firstLetterName2.concat(restSecondtName));*/
 
   /*
 - Crie um array com 5 nomes. Reduza esses nomes a uma única string, separando
@@ -59,20 +65,20 @@ O resultado final deve ficar mais ou menos assim:
   console.log("\nMeus amigos:");
   var names = ["João", "Maria", "Roberto", "Pedro", "Marcos"];
   if (names.length === 1) {
-    var frase = names[0] + " é meu amigo.";
+    var phrase = names[0] + " é meu amigo.";
   } else if (names.length === 2) {
-    var frase = names[0] + " e " + names[1] + " são meus amigos.";
+    var phrase = names[0] + " e " + names[1] + " são meus amigos.";
   } else {
-    var frase = names.slice(0, -1).join(", ") + " e " + names[names.length - 1] + " são meus amigos.";
+    var phrase = names.slice(0, -1).join(", ") + " e " + names[names.length - 1] + " são meus amigos.";
   }
 
-  console.log(frase);
+  console.log(phrase);
   /*
 Usando o replace(), faça a string "Roberto" virar "Roberta".
 Mostre o resultado no console.
 */
   console.log('\nEra "Roberto", agora é:');
-  console.log(frase.replace("Roberto", "Roberta"));
+  console.log("Roberto".replace("to", "ta"));
 
   /*
 Mostre no console a parte "nando" da string "Fernando". Use o método que
