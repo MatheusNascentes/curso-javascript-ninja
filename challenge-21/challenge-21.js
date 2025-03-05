@@ -47,6 +47,5 @@ dado ao elemento HTML deve definir o que o elemento é ou o que ele faz.
 
   startButton.addEventListener("click", iniciar);
   stopButton.addEventListener("click", parar);
-  git;
   resetButton.addEventListener("click", resetar);
 })(window, document);
