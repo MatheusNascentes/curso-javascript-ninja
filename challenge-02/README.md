@@ -41,7 +41,7 @@ Crie uma função com as seguintes características:
 3. O retorno da função deve ser a multiplicação dos 3 argumentos, somando `2` ao resultado da multiplicação.
 */
 function multiDe3(q, w, e){
-    if(e === undefined){
+    if(q === undefined){
         return 'Preencha todos os valores corretamente!';
     };
     return (q*w*e) + 2;
