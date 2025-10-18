@@ -157,7 +157,7 @@ carro.marca() //toyota
 carro.adicionarPessoas(2) //Já temos [X] pessoas no carro!
 
 // Adicione mais 4 pessoas no carro.
-carro.adicionarPessoas(4)
+carro.adicionarPessoas(4) //O carro já está lotado!
 
 // Faça o carro encher.
 carro.adicionarPessoas(3) //Já temos 5 pessoas no carro!
