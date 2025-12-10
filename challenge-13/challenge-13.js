@@ -31,6 +31,7 @@
 	*/
 	console.log( '\nMais estados adicionados:' );
 	brasil.unshift('Amazonas', 'Pará', 'Acre');
+	console.log(brasil)
 
 	/*
 	Remova o primeiro estado do array `brasil` e mostre-o no console.
@@ -128,6 +129,10 @@
 		console.log('Nem todos os estados tem mais de 7 letras!');
 	}
 
+	// OU
+
+	console.log( maiorQue7 ? 'Sim, todos os estados tem mais de 7 letras!' : 'Nem todos os estados tem mais de 7 letras!' )
+
 	/*
 	Percorra o array `brasil` e verifique se o Ceará está incluído, atribuindo o
 	resultado à uma variável. Se esse estado existir no array, mostrar a frase no
@@ -147,6 +152,10 @@
 	} else {
 		console.log('Ceará não foi incluído :(');
 	}
+
+	// OU
+
+	console.log( cearaExiste ? 'Ceará está incluído!' : 'Ceará não foi incluído :(' )
 
 	/*
 	Percorra o array `newBrasil` e crie um novo array que some 1 no ID de cada
