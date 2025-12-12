@@ -28,15 +28,15 @@
     this.lastName = lastName;
     this.age = age;
 
-    this.getFullName = function(){
+    this.getFullName = function getFullName(){
       return this.name + ' ' + this.lastName;
     };
 
-    this.getAge = function(){
+    this.getAge = function getAge(){
       return this.age
     };
 
-    this.addAge = function(){
+    this.addAge = function addAge(){
       this.age += arguments[0];
       return this
     };
@@ -87,5 +87,9 @@
   console.log(felipe.getFullName() + ' agora tem ' + felipe.getAge() + ' anos')
   console.log(bruno.getFullName() + ' agora tem ' + bruno.getAge() + ' anos')
   console.log(jorge.getFullName() + ' agora tem ' + jorge.getAge() + ' anos')
+
+  // OU
+
+  console.log(felipe.getFullName() + ' agora tem ' + felipe.addAge(2).getAge() + ' anos')
 
 })()
