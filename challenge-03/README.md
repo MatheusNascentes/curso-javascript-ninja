@@ -219,6 +219,34 @@ pessoa.apresentacao = function () {
   );
 };
 
+// Utiizando o operador ternario:
+pessoa.apresentacao = function () {
+  var sexo = pessoa.sexo === "Feminino" ? "a" : "o";
+  var anosIdade = pessoa.idade === 1 ? "ano" : "anos";
+  var metrosCaminhados = pessoa.caminhouQuantosMetros === 1 ? "metro" : "metros"
+
+  return (
+    "Olá, eu sou " +
+    sexo +
+    " " +
+    pessoa.nome +
+    " " +
+    pessoa.sobrenome +
+    ", tenho " +
+    pessoa.idade +
+    " " +
+    anosIdade +
+    ", " +
+    pessoa.altura +
+    ", meu peso é " +
+    pessoa.peso +
+    " e, só hoje, eu já caminhei " +
+    pessoa.caminhouQuantosMetros +
+    " " +
+    metrosCaminhados +
+    "!"
+  );
+};
 
 // Agora, apresente-se ;)
 pessoa.apresentacao() // 'Olá, eu sou o Luan Sousa, tenho 24 anos, 1.85, meu peso é 96 e, só hoje, eu já caminhei 350 metros!'
