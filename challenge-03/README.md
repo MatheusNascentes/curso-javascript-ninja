@@ -178,10 +178,48 @@ deve conter no retorno da frase acima é "metro" no lugar de "metros".
 método), que será concatenada com a frase de retorno, mostrando a resposta
 correta, de acordo com os dados inseridos no objeto.
 */
-pessoa.apresentacao = function (){
-   return `Olá, eu sou ${pessoa.sexo === "masculino" ? "o" :"a"} ${pessoa.nome} ${pessoa.sobrenome} , tenho ${pessoa.idade} ${pessoa.idade === 1 ? "ano" : "anos"}, ${pessoa.altura} , meu peso é ${pessoa.peso}kg e, só hoje, eu já caminhei ${pessoa.caminhouQuantosMetros} ${pessoa.caminhouQuantosMetros === 1 ?"metro":"metros"}!` 
-}
+
+pessoa.apresentacao = function () {
+  var sexo = "o";
+  var anosIdade = "anos";
+  var metrosCaminhados = "metros";
+
+  if (pessoa.sexo === "Femninino") {
+    sexo = "a";
+  }
+
+  if (pessoa.idade === 1) {
+    anosIdade = "ano";
+  }
+
+  if (pessoa.caminhouQuantosMetros === 1) {
+    metrosCaminhados = "metro";
+  }
+
+  return (
+    "Olá, eu sou " +
+    sexo +
+    " " +
+    pessoa.nome +
+    " " +
+    pessoa.sobrenome +
+    ", tenho " +
+    pessoa.idade +
+    " " +
+    anosIdade +
+    ", " +
+    pessoa.altura +
+    ", meu peso é " +
+    pessoa.peso +
+    " e, só hoje, eu já caminhei " +
+    pessoa.caminhouQuantosMetros +
+    " " +
+    metrosCaminhados +
+    "!"
+  );
+};
+
 
 // Agora, apresente-se ;)
-?
+pessoa.apresentacao() // 'Olá, eu sou o Luan Sousa, tenho 24 anos, 1.85, meu peso é 96 e, só hoje, eu já caminhei 350 metros!'
 ```
