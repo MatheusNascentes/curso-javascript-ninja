@@ -34,6 +34,7 @@ isTruthy({})
 isTruthy(true)
 isTruthy(-1)
 isTruthy(1)
+isTruthy("Ciranda Cirandinha")
 
 /*
 Declare uma variável chamada `carro`, atribuindo à ela um objeto com as
@@ -63,7 +64,7 @@ Crie um método chamado `mudarCor` que mude a cor do carro conforme a cor
 passado por parâmetro.
 */
 carro.mudaCor = function (novaCor){
-    carr.cor = novaCor;
+    carro.cor = novaCor;
 }
 
 /*
@@ -117,6 +118,7 @@ carro.adicionarPessoas = function (numeroPessoas) {
   if (carro.quantidadePessoas === carro.assentos) {
     return "O carro já está lotado!";
   }
+
   if (totalPessoas > carro.assentos) {
     var quantasPessoasCabem = carro.assentos - carro.quantidadePessoas;
     var maisUmaPessoa = "pessoas";
@@ -125,6 +127,7 @@ carro.adicionarPessoas = function (numeroPessoas) {
     }
     return "Só cabem mais " + quantasPessoasCabem + " " + maisUmaPessoa + " !";
   }
+
   carro.quantidadePessoas += numeroPessoas;
   return "Já temos " + carro.quantidadePessoas + " pessoas no carro!";
 };
@@ -138,38 +141,38 @@ retornar algum valor.
 
 Qual a cor atual do carro?
 */
-?
+carro.obterCor() // "Verde Limão"
 
 // Mude a cor do carro para vermelho.
-?
+carro.mudaCor("Vermelho") // undefined
 
 // E agora, qual a cor do carro?
-?
+carro.obterCor() // 'Vermelho'
 
 // Mude a cor do carro para verde musgo.
-?
+carro.mudaCor("verde musgo") // undefined
 
 // E agora, qual a cor do carro?
-?
+carro.obterCor() // 'verde musgo'
 
 // Qual a marca e modelo do carro?
-?
+carro.obterMarcaModelo() // 'Esse carro é um BMW X70'
 
 // Adicione 2 pessoas no carro.
-?
+carro.adicionarPessoas(2) // 'Já temos 2 pessoas no carro!'
 
 // Adicione mais 4 pessoas no carro.
-?
+carro.adicionarPessoas(4) // 'Só cabem mais 3 pessoas !'
 
 // Faça o carro encher.
-?
+carro.adicionarPessoas(3) // 'Já temos 5 pessoas no carro!'
 
 // Tire 4 pessoas do carro.
-?
+carro.quantidadePessoas = 1  // 1
 
 // Adicione 10 pessoas no carro.
-?
+carro.adicionarPessoas(10) // 'Só cabem mais 4 pessoas !'
 
 // Quantas pessoas temos no carro?
-?
+carro.quantidadePessoas // 1
 ```
