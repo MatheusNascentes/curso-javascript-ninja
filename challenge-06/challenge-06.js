@@ -152,6 +152,35 @@ function convertToHex(color) {
       console.log("Não temos o equivalente hexadecimal para " + color + ".");
   }
 
+// Exercício corrigido:
+function convertToHex(color) {
+  var hexa;
+  switch (color) {
+    case "preto":
+      hexa = "#000000";
+      break;
+    case "branco":
+      hexa = "#FFFFFF";
+      break;
+    case "vermelho":
+      hexa = "#FF0000";
+      break;
+    case "verde":
+      hexa = "#00FF00";
+      break;
+    case "azul":
+      hexa = "#0000FF";
+      break;
+    case "roxo":
+      hexa = "#800080";
+      break;
+    default:
+      return "Não temos o equivalente hexadecimal para " + color + ".";
+        
+  }
+  return "O hexadecimal para a cor " + color + " é " + hexa + ".";
+}
+  
 /*
 Tente mostrar o hexadecimal de 8 cores diferentes usando a função criada acima.
 */
