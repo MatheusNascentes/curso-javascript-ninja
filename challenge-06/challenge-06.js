@@ -67,7 +67,13 @@ function showTeamPosition(position) {
       console.log("Não temos a informação do time que está nessa posição.");
   }
 }
-
+// ou 
+function showTeamPosition(position){
+  if(position < 1 || position > 5 || !position){
+    return "Não temos a informação do time que está nessa posição."
+  }
+  return "O time que está em "+position+"º lugar é o " + teams[position -1] + ".";
+}
 /*
 Escolha 4 times do campeonato selecionado e mostre a posição dele, usando a
 função acima. Entre esses 4, adicione 1 que não esteja entre os 5 primeiros.
