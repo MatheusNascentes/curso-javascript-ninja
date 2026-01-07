@@ -67,20 +67,20 @@
   /*
   Converta os objetos que ficaram em `books` para strings.
   */
-  var toStr = JSON.stringify(books);
+
   console.log( '\nLivros em formato string:' );
-  
+  books = JSON.stringify(books);
   /*
   Mostre os livros nesse formato no console:
   */
-  console.log(toStr);
+  console.log(books);
   
   /*
   Converta os livros novamente para objeto.
   */
-  var toObj = JSON.parse(toStr);
+  books = JSON.parse(books);
   console.log( '\nAgora os livros são objetos novamente:' );
-  console.log(toObj);
+  console.log(books);
   
   /*
   Mostre no console todas as propriedades e valores de todos os livros,
@@ -88,7 +88,9 @@
       "[PROPRIEDADE]: [VALOR]"
   */
   for(var i = 0 ;i< books.length;i++){
-      console.log(books[i])
+    for(var prop in books[i]){
+      console.log(prop+":"+books[i][prop])
+    }
   };
   
   /*
@@ -107,7 +109,7 @@
   /*
   Ainda usando o objeto acima, mostre no console seu nome invertido.
   */
-  console.log( '\nMeu nome invertido é:'+myName.reverse() );
+  console.log( '\nMeu nome invertido é:'+myName.reverse().join() );
   // Meu nome invertido é:a,s,u,o,s,a,t,o,m,a,d,o,a,x,i,a,p,r,o,t,c,i,v,n,a,u,l
   
   console.log( '\nAgora em ordem alfabética:' );
