@@ -33,8 +33,8 @@
         this.getAge = function () {
           return this.age;
         }
-        this.addAge = function (age) {
-          this.age += age;
+        this.addAge = function () {
+          this.age += arguments[0];
           return this;
         }
       };
@@ -46,22 +46,22 @@
   Mostre as 3 novas pessoas criadas no console (Um console.log por pessoa).
   */
   
-  person1 = new Person("Luan","Sousa",24);
-  person2 = new Person("Camila","Ribeiro",30);
-  person3 = new Person("Carlos","Eduardo",25);
+  var luan = new Person("Luan","Sousa",24);
+  var camila = new Person("Camila","Ribeiro",30);
+  var carlos = new Person("Carlos","Eduardo",25);
   console.log( 'Novas pessoas criadas à partir de Person:' );
-  console.log(person1);
-  console.log(person2);
-  console.log(person3);
+  console.log(luan);
+  console.log(camila);
+  console.log(carlos);
   
   /*
   Mostre no console o nome completo de cada pessoa.
   */
   
   console.log( '\nNomes das pessoas:' );
-  console.log(person1.getFullName());
-  console.log(person2.getFullName());
-  console.log(person3.getFullName());
+  console.log(luan.getFullName());
+  console.log(camila.getFullName());
+  console.log(carlos.getFullName());
   
   /*
   Mostre no console as idades de cada pessoa, com a frase:
@@ -69,9 +69,9 @@
   */
   
   console.log( '\nIdade das pessoas:' );
-  console.log(person1.getFullName() + " tem "+ person1.getAge() +" anos.");
-  console.log(person2.getFullName() + " tem "+ person2.getAge() +" anos.");
-  console.log(person3.getFullName() + " tem "+ person3.getAge() +" anos.");
+  console.log(luan.getFullName() + " tem "+ luan.getAge() +" anos.");
+  console.log(camila.getFullName() + " tem "+ camila.getAge() +" anos.");
+  console.log(carlos.getFullName() + " tem "+ carlos.getAge() +" anos.");
 
   /*
   Adicione alguns anos à cada pessoa, e mostre no console a nova idade de
@@ -80,11 +80,11 @@
   */
   
   console.log( '\nNova idade das pessoas:' );
-  console.log(person1.addAge(2));
-  console.log(person2.addAge(5));
-  console.log(person3.addAge(5));
-  console.log(person1.getFullName() + " agora tem "+ person1.getAge() +" anos.");
-  console.log(person2.getFullName() + " agora tem "+ person2.getAge() +" anos.");
-  console.log(person3.getFullName() + " agora tem "+ person3.getAge() +" anos.");
+  console.log(luan.addAge(2));
+  console.log(camila.addAge(5));
+  console.log(carlos.addAge(5));
+  console.log(luan.getFullName() + " agora tem "+ luan.addAge(2).getAge() +" anos.");
+  console.log(camila.getFullName() + " agora tem "+ camila.addAge(5).getAge() +" anos.");
+  console.log(carlos.getFullName() + " agora tem "+ carlos.addAge(5).getAge() +" anos.");
   
 }());
