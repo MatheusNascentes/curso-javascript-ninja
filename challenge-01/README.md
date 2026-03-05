@@ -39,7 +39,7 @@ myvar <= soma
 function divisao(num1, num2){
 if (num2 === 0)
   return "Não existe divisão por 0";
-return var1/var2
+return num1/num2
 }
 
 // Invoque a função criada acima, passando os parâmetros 10 e 2.
