@@ -16,23 +16,15 @@ As propriedades e tipos de valores para cada propriedade desse objeto devem ser:
 - `andando` - Boolean - recebe "falso" por padrão
 - `caminhouQuantosMetros` - Number - recebe "zero" por padrão
 */
-  var pessoa = {
+ var pessoa = {
   nome: "Matheus",
-  sobrenome: "Nasecentes",
+  sobrenome: "Nascentes",
   sexo: "Masculino",
   idade: 35,
   altura: 1.75,
   peso: 100,
-  andando: function (acao) {
-    if (arguments.length === 0)
-      return false;
-    return true;
-  },
-  caminhouQuantosMetros(mts) {
-    if (arguments.length === 0)
-      return 0;
-    return mts;
-  }
+  andando: false,
+  caminhouQuantosMetros: 0
 };
 
 /*
