@@ -9,8 +9,8 @@ para o contrário.
 */
 var isTruthy = function (x) {
   if (x)
-    return x;
-  return x;
+    return true;
+  return false;
 }
 
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
@@ -19,6 +19,8 @@ isTruthy(-0);
 isTruthy(null);
 isTruthy(undefined);
 isTruthy(NaN);
+isTruthy('');
+isTruthy(false);
 
 /*
 Invoque a função criada acima passando como parâmetro 10 valores `truthy`.
@@ -159,7 +161,7 @@ adicionarPessoas(2); //Já temos 2 pessoas no carro!
 adicionarPessoas(4); //Só cabem mais 3 pessoas!
 
 // Faça o carro encher.
-adicionarPessoas(3);
+adicionarPessoas(3); //Já temos 5 pessoas no carro.
 
 // Tire 4 pessoas do carro.
 adicionarPessoas(-4);
