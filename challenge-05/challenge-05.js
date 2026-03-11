@@ -7,14 +7,14 @@ var myVar = [1, 'Matheus', '3', 'quatro', null];
 /*
 Crie uma função que receba um array como parâmetro, e retorne esse array.
 */
-function ar([x]){
+function ar(x){
   return x;
 }
 
 /*
 Imprima o segundo índice do array retornado pela função criada acima.
 */
-ar([myVar[1]]) // Matheus
+ar(myVar)[1] // Matheus
 
 /*
 Crie uma função que receba dois parâmetros: o primeiro, um array de valores; e o
@@ -22,11 +22,11 @@ segundo, um número. A função deve retornar o valor de um índice do array que
 no primeiro parâmetro. O índice usado para retornar o valor, deve ser o número passado no
 segundo parâmetro.
 */
-function mostrarIndice([v1], v2){
+function mostrarIndice(v1, v2){
   return v1[v2];
 }
 
-mostrarIndice([myVar], 3); // quatro
+mostrarIndice(myVar, 3); // quatro
 
 /*
 Declare uma variável que recebe um array com 5 valores, de tipos diferentes.
@@ -37,7 +37,7 @@ var varArray = ['Um', 2, null, true, undefined]
 Invoque a função criada acima, fazendo-a retornar todos os valores do último
 array criado.
 */
-ar([varArray]); //["Um", 2, null, true, undefined]
+ar(varArray); //["Um", 2, null, true, undefined]
 /*
 Crie uma função chamada `book`, que recebe um parâmetro, que será o nome do
 livro. Dentro dessa função, declare uma variável que recebe um objeto com as
