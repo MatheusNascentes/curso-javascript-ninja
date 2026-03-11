@@ -33,19 +33,19 @@ Crie uma função chamada `showTeamPosition` com as seguintes características:
     "Não temos a informação do time que está nessa posição."
 */
 function showTeamPosition(pos) {
-  if (pos < 5)
-    return `O time que está na posição ${pos + 1}º lugar é ${teams[pos]}`;
-  return 'Não temos a informação do time que está nessa posição'
+  if (pos < 1 || pos > 5)
+    return 'Não temos a informação do time que está nessa posição'
+  return `O time que está na posição ${pos}º lugar é ${teams[pos - 1]}`;
 }
 
 /*
 Escolha 4 times do campeonato selecionado e mostre a posição dele, usando a
 função acima. Entre esses 4, adicione 1 que não esteja entre os 5 primeiros.
 */
-console.log(showTeamPosition(0)); //O time que está na posição 1º lugar é Cruzeiro
-console.log(showTeamPosition(1)); //O time que está na posição 2º lugar é Atlético Mineiro
-console.log(showTeamPosition(5)); //Não temos a informação do time que está nessa posição
-console.log(showTeamPosition(3)); //O time que está na posição 4º lugar é URT
+console.log(showTeamPosition(1)); //O time que está na posição 1º lugar é Cruzeiro
+console.log(showTeamPosition(2)); //O time que está na posição 2º lugar é Atlético Mineiro
+console.log(showTeamPosition(6)); //Não temos a informação do time que está nessa posição
+console.log(showTeamPosition(5)); //O time que está na posição 4º lugar é Mamoré
 
 /*
 Mostre os números de 20 a 30 no console (inclusive o 30), usando a estrutura de
@@ -68,28 +68,21 @@ Crie uma função chamada `convertToHex`, com as seguintes características:
     a frase:
     "Não temos o equivalente hexadecimal para [COR]."
 */
-function convertToHex(cor){
-  var frase = '';
-  switch(cor){
+function convertToHex(cor) {
+  switch (cor) {
     case 'vermelho':
-    frase = `O hexadecimal para ${cor} é #FF0000.`;
-    break
+      return `O hexadecimal para ${cor} é #FF0000.`;
     case 'azul':
-    frase = `O hexadecimal para ${cor} é #0000FF.`;
-    break
+      return `O hexadecimal para ${cor} é #0000FF.`;
     case 'verde':
-    frase = `O hexadecimal para ${cor} é #008000.`;
-    break
+      return `O hexadecimal para ${cor} é #008000.`;
     case 'amarelo':
-    frase = `O hexadecimal para ${cor} é #FFFF00.`;
-    break
+      return `O hexadecimal para ${cor} é #FFFF00.`;
     case 'preto':
-    frase = `O hexadecimal para ${cor} é #000000.`;
-    break
+      return `O hexadecimal para ${cor} é #000000.`;
     default:
-    frase = `Não temos o equivalente hexadecimal para a cor ${cor}.`
+      return `Não temos o equivalente hexadecimal para a cor ${cor}.`
   }
-  return frase;
 }
 /*
 Tente mostrar o hexadecimal de 8 cores diferentes usando a função criada acima.
