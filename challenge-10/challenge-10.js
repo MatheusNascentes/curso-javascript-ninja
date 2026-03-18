@@ -13,7 +13,7 @@
   var five = Number('5');
   console.log( five + ' é número?', typeof five === 'number' );
   
-  var concat = String(10 + 10);
+  var concat = String(10) + String(10);
   console.log( '"' + concat + '" é uma string? E é igual a "1010"?', typeof concat === 'string' );
   
   /*
@@ -69,7 +69,7 @@ var operation = {
   os dois parâmetros da função de retorno de "calculator".
   */
   function calculator(op2) {
-    if (!(op2 in operation))
+    if (!isOperatorValid(op2))
       return false;
     return function (a, b) {
       if (typeof a !== 'number' || typeof b !== 'number')
@@ -96,7 +96,7 @@ var operation = {
   'Operação "[OPERATOR]" não permitida!'
   */
   function showMessageError(op){
-    if (!(op in operation))
+    if (!isOperatorValid(op2))
     return `Operação ${op} não permitida`
   }
   
@@ -106,8 +106,8 @@ var operation = {
   - Declare 3 variáveis: "number1" e "number2", iniciando com valor zero, e
   "operationSignal", sem valor por enquanto.
   */
-  var number1 =0;
-  var number2 =0;
+  var number1 = 0;
+  var number2 = 0;
   var operationSignal = '';
   
   /*
