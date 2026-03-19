@@ -11,7 +11,7 @@
   var once = false;
   do {
     console.log('Entrou ao menos uma vez');
-  } while (once !== false);
+  } while (once);
   
   /*
   Crie um objeto chamado `person`, que receba as seguintes propriedades:
@@ -50,20 +50,18 @@
   'The person has more than 25 years old? [TRUE/FALSE]'
   */
   function moreThan(age) {
-    if (person.age > age)
-      return true;
-    return false;
+    return person.age > age
   }
   
-  console.log(`The person has more then 25 years old? ${person.age > 25 ? true : false}`); // The person has more then 25 years old? true
+  console.log(`The person has more then 25 years old? ${moreThan(35)}`); // The person has more then 25 years old? true
   
   /*
   Faça um loop de 0 a 20, que adicione cada número como um item de um
   array chamado `numbers`. Se o contador for maior que 10, saia do loop.
   Mostre no console os números no array.
   */
+  console.log('De 0 a 10');
   var numbers = [];
-
   for (var c = 0; c <= 20; c++) {
     numbers.push(c);
     if (c === 10)
@@ -78,12 +76,13 @@
   esses. Se o número for ímpar, pular para o próximo número.
   Mostrar no console os números do array.
   */
+  console.log('Pares de 0 a 20');
   var numbers = [];
 
   for (var c = 0; c <= 20; c++) {
     if (c % 2 === 0)
-    numbers.push(c);
+      numbers.push(c);
   }
   
   console.log(`Pares de 0 a 20: ${numbers.join(', ')}`); //Pares de 0 a 20: 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20
-})
+})()
