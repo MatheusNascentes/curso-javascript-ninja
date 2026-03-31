@@ -96,10 +96,10 @@
   */
   var newBrasil = [];
   
-  brasil.forEach((estado, index) => {
+  brasil.forEach((item, index) => {
     newBrasil.push({
       id: index,
-      estado: estado
+      estado: item
     });
   });
   /*
@@ -131,10 +131,10 @@
   Senão, mostre no console:
   - "Nem todos os estados tem mais de 7 letras!"
   */
-  
-  brasil.some((estado) => {
-    if (estado.length > 7)
-      estadosComMaisDe7Letras += estado;
+  var estadosComMaisDe7Letras = [];
+  brasil.some((item) => {
+    if (item.length > 7)
+      estadosComMaisDe7Letras.push (item);
   })
   
   if (brasil.length === estadosComMaisDe7Letras.length)
@@ -164,8 +164,8 @@
   var map = [];
   newBrasil.map((item, index) => {
     map.push({
-      index: index + 1,
-      estado: item.estado + ' pertence ao brasil'
+      id: index + 1,
+      estado: `${item.estado} pertence ao brasil`
     });
   });
   
