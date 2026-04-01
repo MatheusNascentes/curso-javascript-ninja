@@ -21,11 +21,9 @@
   números do array criado acima. Mostre esse novo array no console.
   */
   console.log( '\nJust Numbers:' );
-  var justNumbers = numberObject.reduce((newArr, item) => {
-    if (typeof (item.number) === 'number')
-      newArr.push(item.number);
-    return newArr
-  }, []);
+  var justNumbers = numberObject.map(item) => {
+    return item.number
+  });
   
   console.log(justNumbers)
   
@@ -35,11 +33,9 @@
   no console.
   */
   console.log( '\nJust module of division by 2 or 3:' );
-  var justMod2Or3 = justNumbers.reduce((div2or3, num) => {
-    if (num % 2 === 0 || num % 3 === 0)
-      div2or3.push(num);
-    return div2or3;
-  }, []);
+  var justMod2Or3 = justNumbers.filter(item) => {
+    return item % 2 === 0 || item % 3 === 0
+  });
   
   console.log(justMod2Or3)
   
@@ -92,7 +88,7 @@
   */
   console.log( '\nInversed Name:' );
   var nameInverse = name.reduceRight((red, sil) => {
-    return red += ` Pê ${sil}`
+    return red + sil;
   }, "")
   
   console.log(nameInverse)
