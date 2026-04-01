@@ -21,7 +21,25 @@ as seguintes características:
   adicionados à idade original (age). Esse método deverá retornar o objeto
   que será instanciado.
 */
-// ?
+function Person(name, lastName, age) {
+  this.name = name;
+  this.lastName = lastName;
+  this.age = age;
+
+  this.getFullName = function () {
+    return `${this.name} ${this.lastName}`;
+  }
+
+  this.getAge = function () {
+    return this.age;
+  }
+
+  this.addAge = function () {
+    var arg = arguments[0];
+    this.age += arg;
+    return this;
+  }
+};
 
 /*
 Crie 3 novos objetos usando o construtor acima. Os objetos serão novas
@@ -30,20 +48,26 @@ parâmetros corretamente para o construtor para criar as novas pessoas.
 Mostre as 3 novas pessoas criadas no console (Um console.log por pessoa).
 */
 console.log( 'Novas pessoas criadas à partir de Person:' );
-// ?
+var matheus = new Person('Matheus', 'Nascentes', 35);
+var francine = new Person('Francine', 'Campos', 32);
+var pedro = new Person('Pedro', 'Nascentes', 68);
 
 /*
 Mostre no console o nome completo de cada pessoa.
 */
 console.log( '\nNomes das pessoas:' );
-// ?
+console.log(matheus.getFullName); // Matheus Nascentes
+console.log(francine.getFullName()); // Francine Campos
+console.log(pedro.getFullName()); // Pedro Nascentes
 
 /*
 Mostre no console as idades de cada pessoa, com a frase:
 - "[NOME COMPLETO] tem [IDADE] anos."
 */
 console.log( '\nIdade das pessoas:' );
-// ?
+console.log(`${matheus.getFullName()} tem ${matheus.getAge()} anos`) //Matheus Nascentes tem 35 anos
+console.log(`${francine.getFullName()} tem ${francine.getAge()} anos`) //Francine Campos tem 32 anos
+console.log(`${pedro.getFullName()} tem ${pedro.getAge()} anos`) //Pedro Nascentes tem 68 anos
 
 /*
 Adicione alguns anos à cada pessoa, e mostre no console a nova idade de
@@ -51,4 +75,6 @@ cada um. A frase deverá ser no formato:
 - "[NOME COMPLETO] agora tem [NOVA IDADE] anos."
 */
 console.log( '\nNova idade das pessoas:' );
-// ?
+console.log(`${matheus.getFullName()} tem ${matheus.addAge(5).getAge()} anos`) //Matheus Nascentes tem 40 anos
+console.log(`${francine.getFullName()} tem ${francine.addAge(8).getAge()} anos`) //Francine Campos tem 40 anos
+console.log(`${pedro.getFullName()} tem ${pedro.addAge(2).getAge()} anos`) //Pedro Nascentes tem 70 anos
