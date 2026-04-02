@@ -10,7 +10,7 @@ regulares! Para isso, iremos usar o texto abaixo. Coloque-o em uma
 variável chamada `text`:
 "Manuel Marques de Sousa, Conde de Porto Alegre (Rio Grande, 13 de junho de 1804 – Rio de Janeiro, 18 de julho de 1875), apelidado de "O Centauro de Luvas", foi um militar, político, abolicionista e monarquista brasileiro."
 */
-// ?
+var text = 'Manuel Marques de Sousa, Conde de Porto Alegre (Rio Grande, 13 de junho de 1804 – Rio de Janeiro, 18 de julho de 1875), apelidado de "O Centauro de Luvas", foi um militar, político, abolicionista e monarquista brasileiro.';
 
 /*
 Vamos começar com umas brincadeiras fáceis :D
@@ -18,7 +18,7 @@ Troque o nome "Manuel Marques de Sousa" pelo seu nome, e mostre o resultado
 no console:
 */
 console.log( 'Adicionando seu nome no texto:' );
-// ?
+console.log(text.replace('Manuel Marques de Sousa', 'Matheus Nascentes'));
 
 /*
 Agora, substitua a palavra "brasileiro" por sua cidade natal e mostre no
@@ -26,7 +26,7 @@ console.
 Ex: Se você for da São Paulo, substitua por "paulista".
 */
 console.log( '\nTrocando naturalidade:' );
-// ?
+console.log(text.replace('brasileiro', 'mineiro'));
 
 /*
 Substitua todos os números por um traço `-`. Cada caractere de número deve
