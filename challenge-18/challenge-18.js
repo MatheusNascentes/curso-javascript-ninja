@@ -53,7 +53,7 @@
   ["junho", "julho"]
   */
   console.log( '\nMatch com as palavras "junho" ou "julho" para a frase "Os meses de janeiro, junho e julho começam com a letra j.":' );
-  var frase = 'janeiro fevereiro março abril maio junho julho agosto setembro outubro novembro dezembro';
+  var frase = 'Os meses de janeiro, junho e julho começam com a letra j.';
   console.log(frase.match(/ju[nl]ho/g));
   
   /*
