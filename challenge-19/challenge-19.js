@@ -26,7 +26,7 @@
   no console:
   */
   console.log( 'Regex para números usando o construtor:' );
-  var justNumbersRegex = new RegExp('^\\d+','gi');
+  var justNumbersRegex = new RegExp('^\\d+','gm');
   /*
   Verifique se a regex acima casa com o texto na variável `text`, mostrando o
   resultado no console. O resultado deve ser:
@@ -45,7 +45,7 @@
   Mostre a regex no console:
   */
   console.log( '\nRegex para números somente no final das linhas:' );
-  var numbersAtTheEnd = new RegExp('\\d+$', 'gi');
+  var numbersAtTheEnd = new RegExp('\\d+$', 'gm');
   
   /*
   Verifique se a regex acima casa com o texto na variável `otherText`,
@@ -83,7 +83,7 @@
   var markup = '<main>\n  <div class="container">\n    <span class="text date"></span>\n    <p class=\'excerpt\'></p>\n  </div>\n</main>';
   console.log( '\nQuais classes CSS existem na marcação abaixo?\n\n', markup, '\n' );
   function hasClass(markup, cssClass) {
-    var regex = new RegExp(`=["']${cssClass}+`, 'gi');
+    var regex = new RegExp(`=["'](?:[\\w\\s]+)?${cssClass}+`, 'gi');
     return console.log(`${regex.test(markup)} para a classe ${cssClass}`);
   }
   var teste = ['container', 'text', 'date', 'excerpt', 'main'];
