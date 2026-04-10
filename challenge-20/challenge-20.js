@@ -32,32 +32,33 @@
     - Selecione o input de "Nome", atribuindo-o à uma variável chamada
     `$inputUsername`.
     */
-    //var $inputUserName = doc.getElementsByName('Nome')[0];
-    //console.log('Nome: ', $inputUserName.value);
+    var $inputUserName = doc.querySelector('input[name="Nome"]');
+
 
     /*
     - Selecione o input de "Email", atribuindo-o à uma variável chamada
     `$inputEmail`.
     */
-    // ?
+    var $inputEmail = doc.querySelector('input[name="Email"]');
 
     /*
     - Selecione o campo de "Mensagem", atribuindo-o à uma variável chamada
     `$message`.
     */
-    // ?
+    var $message = doc.querySelector('textarea[name="Mensagem"]');
 
     /*
     - Selecione o botão de envio do formulário, atribuindo-o à uma variável
     chamada `$button`.
     */
-    // ?
+    var $button = doc.querySelector('button[type="submit"]');
 
     /*
     Preencha os campos de "Nome" e "Email" que estão no documento com os valores
     entrados pelo usuário.
     */
-    // ?
+    doc.querySelector('[name = "Nome"]').value = 'Matheus';
+    doc.querySelector('[name = "Email"]').value = 'matheus@teste.com.br';
 
     /*
     Adicione um listener de evento de click ao botão que faça o seguinte:
@@ -83,7 +84,29 @@
     Caso contrário, mostre um alerta com a mensagem:
         - "Não enviado."
     */
-    // ?
+    $button.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        if (!$inputUserName.value) {
+            console.log("🚀 ~ inputUserName:", $inputUserName)
+            alert('Preencha o nome do usuário!');
+            return;
+        }
+        else if (!$inputEmail.value) {
+            console.log("🚀 ~ inputEmail:", $inputEmail)
+            alert('Preencha o email!');
+            return;
+        }
+        else if (!isValidEmail($inputEmail.value)) {
+            alert('Entre com um email válido!');
+            return;
+        }
+        else if (!$message.value) {
+            console.log("🚀 ~ message:", $message.value)
+            alert('Preencha a mensagem');
+            return
+        }
+    });
 
     /*
     Crie uma função chamada `isValidEmail`, que será usada na validação do
@@ -111,5 +134,9 @@
         - "rita-marica@titica.a.b"
         - "agua_@evida.br.com"
     */
-    // ?
+    function isValidEmail(email) {
+        const regex = /^[a-zA-Z0-9._+]+@[a-zA-Z0-9_]+\.[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{1,2})?$/;
+        console.log("🚀 ~ isValidEmail ~ regex.test(email):", regex.test(email))
+        return regex.test(email);
+    }
 })(window, document);
