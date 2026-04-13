@@ -1,5 +1,5 @@
 (function (win, doc) {
-    'use strict'
+    'use strict';
     /*
     1. Envolva todo o conteúdo desse desafio em uma IIFE.
     2. Adicione a diretiva 'use strict';
@@ -17,35 +17,34 @@
     Com a resposta, mostre um alert com a mensagem "Bem vindo [USERNAME]!"
     */
 
-    var $userName = prompt('Qual o seu nome?');
-    if (!$userName)
-        $userName = 'Desconhecido';
-    alert(`Bem vindo ${$userName}`);
+    var username = prompt('Qual o seu nome?');
+    if (!username)
+        username = 'Desconhecido';
+    alert(`Bem vindo ${username}`);
 
     /*
     Agora, pergunte ao usuário "Qual o seu e-mail?", atribuindo o resultado à
     uma variável chamada `email`.
     */
-    var $email = prompt('Qual o seu email?');
+    var email = prompt('Qual o seu email?');
 
     /*
     - Selecione o input de "Nome", atribuindo-o à uma variável chamada
     `$inputUsername`.
     */
-    var $inputUserName = doc.querySelector('input[name="Nome"]');
-
+    var $inputUserName = doc.querySelector('input[type="text"]');
 
     /*
     - Selecione o input de "Email", atribuindo-o à uma variável chamada
     `$inputEmail`.
     */
-    var $inputEmail = doc.querySelector('input[name="Email"]');
+    var $inputEmail = doc.querySelector('input[type="email"]');
 
     /*
     - Selecione o campo de "Mensagem", atribuindo-o à uma variável chamada
     `$message`.
     */
-    var $message = doc.querySelector('textarea[name="Mensagem"]');
+    var $message = doc.querySelector('textarea');
 
     /*
     - Selecione o botão de envio do formulário, atribuindo-o à uma variável
@@ -57,8 +56,8 @@
     Preencha os campos de "Nome" e "Email" que estão no documento com os valores
     entrados pelo usuário.
     */
-    doc.querySelector('[name = "Nome"]').value = 'Matheus';
-    doc.querySelector('[name = "Email"]').value = 'matheus@teste.com.br';
+    $inputUserName.value = username;
+    $inputEmail.value = email;
 
     /*
     Adicione um listener de evento de click ao botão que faça o seguinte:
@@ -87,26 +86,19 @@
     $button.addEventListener('click', function (e) {
         e.preventDefault();
 
-        if (!$inputUserName.value) {
-            console.log("🚀 ~ inputUserName:", $inputUserName)
-            alert('Preencha o nome do usuário!');
-            return;
-        }
-        else if (!$inputEmail.value) {
-            console.log("🚀 ~ inputEmail:", $inputEmail)
-            alert('Preencha o email!');
-            return;
-        }
-        else if (!isValidEmail($inputEmail.value)) {
-            alert('Entre com um email válido!');
-            return;
-        }
-        else if (!$message.value) {
-            console.log("🚀 ~ message:", $message.value)
-            alert('Preencha a mensagem');
-            return
-        }
+        if (!$inputUserName.value)
+            return alert('Preencha o nome do usuário!');
+        if (!$inputEmail.value)
+            return alert('Preencha o email!');
+        if (!$message.value)
+            return alert('Preencha a mensagem');
+        if (!isValidEmail($inputEmail.value))
+            return alert('Entre com um email válido!');
+        if (!confirm('Tem Certeza que deseja enviar o formulário?'))
+            return alert('Não enviado!');
+        return alert('Enviado com sucesso')
     });
+
 
     /*
     Crie uma função chamada `isValidEmail`, que será usada na validação do
@@ -136,7 +128,6 @@
     */
     function isValidEmail(email) {
         const regex = /^[a-zA-Z0-9._+]+@[a-zA-Z0-9_]+\.[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{1,2})?$/;
-        console.log("🚀 ~ isValidEmail ~ regex.test(email):", regex.test(email))
         return regex.test(email);
     }
 })(window, document);
