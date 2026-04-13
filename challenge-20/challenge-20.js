@@ -87,9 +87,9 @@
         e.preventDefault();
 
         if (!$inputUserName.value)
-            return alert('Preencha o nome do usuário!');
+            return alert('Preencha o nome do usuário!!');
         if (!$inputEmail.value)
-            return alert('Preencha o email!');
+            return alert('Preencha o email!!');
         if (!$message.value)
             return alert('Preencha a mensagem');
         if (!isValidEmail($inputEmail.value))
