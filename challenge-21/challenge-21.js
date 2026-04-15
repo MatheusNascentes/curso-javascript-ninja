@@ -1,4 +1,5 @@
 (function (win, doc) {
+    'use strict';
     /*
     O desafio de hoje será um pequeno projeto: um cronômetro!
     As regras para criação do cronômetro são as seguintes:
@@ -17,16 +18,15 @@
     */
     // ?
 
-    var $btnStart = doc.querySelector('[data-btnStart="button"]');
-    var $btnStop = doc.querySelector('[data-btnStop="button"]');
-    var $btnReset = doc.querySelector('[data-btnReset="button"]');
-    var $input = doc.querySelector('[data-temp="text"]');
+    var $btnStart = doc.querySelector('[data-js="start"]');
+    var $btnStop = doc.querySelector('[data-js="stop"]');
+    var $btnReset = doc.querySelector('[data-js="reset"]');
+    var $input = doc.querySelector('[data-js="timer"]');
     var contador = 0;
     var pararCron;
     var ativado = false;
 
     function cronometro() {
-        //console.log('Timer:', contador++);
         $input.value = contador++;
         pararCron = setTimeout(cronometro, 1000);
     }
