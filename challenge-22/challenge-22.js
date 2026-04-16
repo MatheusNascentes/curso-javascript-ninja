@@ -94,7 +94,6 @@
   números desse array e mostre o resultado no console.
   */
   console.log('\nSomar números entrados pelo usuário:');
-  //aqui poderia tbm usar um String.Join para não ter que mudar a função.
   console.log('Somatório', sum.apply(null, numbers));
 
 })(window, document);
