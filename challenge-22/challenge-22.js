@@ -41,14 +41,9 @@
   */
   function sum() {
     console.log(arguments);
-    if (Array.isArray(arguments[0]))
-      result = Array.prototype.reduce.call(arguments[0], (acumulated, atual) => {
-        return Number(acumulated) + Number(atual)
-      })
-    else
-      var result = Array.prototype.reduce.call(arguments, (acumulated, atual) => {
-        return acumulated + atual;
-      });
+    var result = Array.prototype.reduce.call(arguments, (acumulated, atual) => {
+      return Number(acumulated) + Number(atual);
+    });
     return result;
   }
 
@@ -100,6 +95,6 @@
   */
   console.log('\nSomar números entrados pelo usuário:');
   //aqui poderia tbm usar um String.Join para não ter que mudar a função.
-  console.log('Somatório', sum(numbers));
+  console.log('Somatório', sum.apply(null, numbers));
 
 })(window, document);
