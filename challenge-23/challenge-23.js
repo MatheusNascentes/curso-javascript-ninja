@@ -28,14 +28,15 @@
         $display.value = '';
     }
     function validarUltimoDigito(operacao, display) {
-        var regex = /\D$/g;
-        console.log('Operador', operacao);
-        console.log('Display', display);
+        var regex = /[+\-*\/]$/;
         if (regex.test(display)) {
-            console.log('Regextest', regex.test(display))
-            return display + operacao;
+            return display.slice(0, -1) + operacao;
         }
-        return display
+        return display + operacao;
+    }
+
+    function calcular(input) {
+
     }
     var $zero = doc.querySelector('[data-js="zero"]');
     var $um = doc.querySelector('[data-js="um"]');
@@ -53,6 +54,8 @@
     var $menos = doc.querySelector('[data-js="menos"]');
     var $mult = doc.querySelector('[data-js="mult"]');
     var $div = doc.querySelector('[data-js="div"]');
+    var $clear = doc.querySelector('[data-js="clear"]');
+    var $equals = doc.querySelector('[data-js="equals"]');
 
 
     $zero.addEventListener('click', () => {
@@ -111,25 +114,29 @@
     $mais.addEventListener('click', () => {
         if ($display.value === '0')
             return;
-        $display.value += '+';
+        $display.value = validarUltimoDigito('+', $display.value);
     });
     $menos.addEventListener('click', () => {
         if ($display.value === '0')
             return;
-        $display.value += '-';
+        $display.value = validarUltimoDigito('-', $display.value);
     });
     $mult.addEventListener('click', () => {
         if ($display.value === '0')
             return;
-        $display.value += '*';
+        $display.value = validarUltimoDigito('*', $display.value);
     });
     $div.addEventListener('click', () => {
         if ($display.value === '0')
             return;
-        $display = validarUltimoDigito('/', $display.value)
-
-
-
+        $display.value = validarUltimoDigito('/', $display.value);
     });
+    $clear.addEventListener('click', () => {
+        $display.value = '0';
+    });
+    $equals.addEventListener('click', () => {
+        const soma = Function("return " + $display.value)();
+        $display.value = Function("return " + $display.value)();
+    })
 
 })(window, document);
