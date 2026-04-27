@@ -35,9 +35,6 @@
         return display + operacao;
     }
 
-    function calcular(input) {
-
-    }
     var $zero = doc.querySelector('[data-js="zero"]');
     var $um = doc.querySelector('[data-js="um"]');
     var $dois = doc.querySelector('[data-js="dois"]');
@@ -75,36 +72,43 @@
             limparZero();
         $display.value += 2;
     });
+
     $tres.addEventListener('click', () => {
         if ($display.value === '0')
             limparZero();
         $display.value += 3;
     });
+
     $quatro.addEventListener('click', () => {
         if ($display.value === '0')
             limparZero();
         $display.value += 4;
     });
+
     $cinco.addEventListener('click', () => {
         if ($display.value === '0')
             limparZero();
         $display.value += 5;
     });
+
     $seis.addEventListener('click', () => {
         if ($display.value === '0')
             limparZero();
         $display.value += 6;
     });
+
     $sete.addEventListener('click', () => {
         if ($display.value === '0')
             limparZero();
         $display.value += 7;
     });
+
     $oito.addEventListener('click', () => {
         if ($display.value === '0')
             limparZero();
         $display.value += 8;
     });
+
     $nove.addEventListener('click', () => {
         if ($display.value === '0')
             limparZero();
@@ -116,26 +120,30 @@
             return;
         $display.value = validarUltimoDigito('+', $display.value);
     });
+
     $menos.addEventListener('click', () => {
         if ($display.value === '0')
             return;
         $display.value = validarUltimoDigito('-', $display.value);
     });
+
     $mult.addEventListener('click', () => {
         if ($display.value === '0')
             return;
         $display.value = validarUltimoDigito('*', $display.value);
     });
+
     $div.addEventListener('click', () => {
         if ($display.value === '0')
             return;
         $display.value = validarUltimoDigito('/', $display.value);
     });
+
     $clear.addEventListener('click', () => {
         $display.value = '0';
     });
+
     $equals.addEventListener('click', () => {
-        const soma = Function("return " + $display.value)();
         $display.value = Function("return " + $display.value)();
     })
 
