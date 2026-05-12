@@ -35,7 +35,7 @@
 
   function buscarCep() {
     var $cep = doc.querySelector('[data-js="visor"]').value;
-    var soNumero = $cep.replace('/\\d+/', '');
+    var soNumero = $cep.replace('/\d+/', '');
     console.log("🚀 ~ buscarCep ~ soNumero:", soNumero)
 
     var url = `https://viacep.com.br/ws/${$cep.value}/json/`;
