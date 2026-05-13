@@ -58,6 +58,7 @@
   }
   function buscarCep() {
     zerarCampos();
+    $retornoApi.value = `Buscando informações para o CEP ${$consultaCep.value}...`;
     buscarCep2();
     var cepValidado = validarCep();
     if (cepValidado) {
@@ -75,9 +76,12 @@
             $estado.value = data.estado;
             $cidade.value = data.localidade;
             $cep.value = data.cep;
-            $retornoApi.value = 'CEP encontrado com sucesso!'
+            $retornoApi.value = `Endereço referente ao CEP ${data.cep}.`
           } else {
-            $retornoApi.value = 'CEP não encontrado na base de dados!';
+            var cep = $consultaCep.value;
+            console.log("🚀 ~ buscarCep ~ cep:", cep);
+
+            $retornoApi.value = `Não encontramos o endereço para o CEP ${$consultaCep.value}.`;
           }
         }
       }
