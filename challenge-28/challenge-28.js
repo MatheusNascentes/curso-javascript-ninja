@@ -29,17 +29,67 @@
   */
 
   var $consultaCep = doc.querySelector('[data-js="consulta-cep"]');
+  var $logradouro = doc.querySelector('[data-js="logradouro"]');
+  var $bairro = doc.querySelector('[data-js="bairro"]');
+  var $estado = doc.querySelector('[data-js="estado"]');
+  var $cidade = doc.querySelector('[data-js="cidade"]');
+  var $cep = doc.querySelector('[data-js="CEP"]');
+  var $retornoApi = doc.querySelector('[data-js="retorno-api"]');
 
   $consultaCep.addEventListener('click', buscarCep, false);
 
-
-  function buscarCep() {
+  function validarCep() {
     var $cep = doc.querySelector('[data-js="visor"]').value;
-    var soNumero = $cep.replace('/\d+/', '');
-    console.log("🚀 ~ buscarCep ~ soNumero:", soNumero)
+    var soNumero = $cep.replace(/\D/g, '');
+    if (String(soNumero).length != 8) {
+      $retornoApi.value = 'CEP faltando dados!'
+      return false;
+    }
+    return soNumero;
+  }
 
-    var url = `https://viacep.com.br/ws/${$cep.value}/json/`;
-    //console.log("🚀 ~ buscarCep ~ url:", url)
+  function zerarCampos() {
+    $logradouro.value = null;
+    $bairro.value = null;
+    $estado.value = null;
+    $cidade.value = null;
+    $cep.value = null;
+    $retornoApi.value = null;
+  }
+  function buscarCep() {
+    zerarCampos();
+    buscarCep2();
+    var cepValidado = validarCep();
+    if (cepValidado) {
+      var ajax = new XMLHttpRequest();
+      var url = `https://viacep.com.br/ws/${cepValidado}/json/`;
+      ajax.open('GET', url);
 
+      ajax.onload = () => {
+        if (ajax.status === 200) {
+          var data = JSON.parse(ajax.responseText);
+          if (!data.erro) {
+            console.log("🚀 ~ buscarCep ~ data:", data)
+            $logradouro.value = data.logradouro;
+            $bairro.value = data.bairro;
+            $estado.value = data.estado;
+            $cidade.value = data.localidade;
+            $cep.value = data.cep;
+            $retornoApi.value = 'CEP encontrado com sucesso!'
+          } else {
+            $retornoApi.value = 'CEP não encontrado na base de dados!';
+          }
+        }
+      }
+      ajax.send();
+    }
+  }
+  async function buscarCep2() {
+    var cepValidado = validarCep();
+    if (cepValidado) {
+      var url = `https://viacep.com.br/ws/${cepValidado}/json/`;
+      var response = await fetch(url);
+      var data = await response.json()
+    }
   }
 })(window, document)
