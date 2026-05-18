@@ -43,7 +43,8 @@
   function montarObjCarro(e) {
     console.log("🚀 ~ montarObjCarro ~ montarObjCarro:", montarObjCarro)
     e.preventDefault();
-    console.log($form.elements.marca.value);
+    //TO-DO
+    //Montar o objeto do carro e colocar ele dentro do array.
     return '';
   }
 
