@@ -1,4 +1,4 @@
-(function() {
+(function (win, doc) {
   'use strict';
 
   /*
@@ -36,4 +36,15 @@
   que será nomeado de "app".
   */
 
-})();
+  var carros = [];
+  var $form = doc.querySelector('[data-js="formulario"]');
+  $form.addEventListener('submit', montarObjCarro, false);
+
+  function montarObjCarro(e) {
+    console.log("🚀 ~ montarObjCarro ~ montarObjCarro:", montarObjCarro)
+    e.preventDefault();
+    console.log($form.elements.marca.value);
+    return '';
+  }
+
+})(window, document);
