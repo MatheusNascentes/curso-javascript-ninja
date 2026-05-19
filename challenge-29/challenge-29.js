@@ -36,16 +36,48 @@
   que será nomeado de "app".
   */
 
-  var carros = [];
-  var $form = doc.querySelector('[data-js="formulario"]');
-  $form.addEventListener('submit', montarObjCarro, false);
+  function garagem() {
+    var carros = [];
+    var $form = doc.querySelector('[data-js="formulario"]');
+    var $tabela = doc.querySelector('[data-js="tabela-carros"]');
 
-  function montarObjCarro(e) {
-    console.log("🚀 ~ montarObjCarro ~ montarObjCarro:", montarObjCarro)
-    e.preventDefault();
-    //TO-DO
-    //Montar o objeto do carro e colocar ele dentro do array.
-    return '';
+    $form.addEventListener('submit', salvarCarro, false);
+
+    function salvarCarro(e) {
+      e.preventDefault();
+      carros.push({
+        imagem: $form.imagem.value,
+        marca: $form.marca.value,
+        ano: $form.ano.value,
+        placa: $form.placa.value,
+        cor: $form.cor.value
+      });
+      preencherTabela();
+      return '';
+    }
+
+    function preencherTabela() {
+      $tabela.innerHTML = '';
+      carros.forEach((e) => {
+        var linha = `<tr>
+                    <td>${e.imagem}</td>
+                    <td>${e.marca}</td>
+                    <td>${e.ano}</td>
+                    <td>${e.placa}</td>
+                    <td>${e.cor}</td>
+                  </tr>`
+        $tabela.innerHTML += linha;
+      });
+      limparDados();
+    }
+
+    function limparDados() {
+      $form.imagem.value = null;
+      $form.marca.value = null;
+      $form.ano.value = null;
+      $form.placa.value = null;
+      $form.cor.value = null;
+    }
   }
-
+  garagem();
 })(window, document);
