@@ -53,7 +53,6 @@
         cor: $form.cor.value
       });
       preencherTabela();
-      return '';
     }
 
     function preencherTabela() {
@@ -79,5 +78,7 @@
       $form.cor.value = null;
     }
   }
+
   garagem();
+
 })(window, document);
