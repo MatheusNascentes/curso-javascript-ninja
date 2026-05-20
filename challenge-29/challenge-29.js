@@ -36,7 +36,75 @@
   que será nomeado de "app".
   */
 
-  function garagem() {
+  function app() {
+    var carros = [];
+    var $form = doc.querySelector('[data-js="formulario"]');
+    var $tabela = doc.querySelector('[data-js="tabela-carros"]');
+    return {
+      init: function init() {
+        this.companyInfo();
+        this.garage();
+      },
+
+      companyInfo: async function companyInfo() {
+        try {
+          const response = await fetch('./company.json');
+          const dados = await response.json();
+
+          document.getElementById('empresa').innerText = dados.name;
+          document.getElementById('telefone').innerText = dados.phone;
+        } catch (erro) {
+          console.error('Erro: ', erro);
+        }
+      },
+
+      garage: function garage() {
+        //var carros = [];
+        //var $form = doc.querySelector('[data-js="formulario"]');
+        //var $tabela = doc.querySelector('[data-js="tabela-carros"]');
+
+        $form.addEventListener('submit', this.saveCar.bind(this), false);
+      },
+
+      saveCar: function saveCar(e) {
+        e.preventDefault();
+        carros.push({
+          imagem: $form.imagem.value,
+          marca: $form.marca.value,
+          ano: $form.ano.value,
+          placa: $form.placa.value,
+          cor: $form.cor.value
+        });
+        this.filledTable();
+      },
+
+      filledTable: function filledTable() {
+        $tabela.innerHTML = '';
+        carros.forEach((e) => {
+          var linha = `<tr>
+                    <td>${e.imagem}</td>
+                    <td>${e.marca}</td>
+                    <td>${e.ano}</td>
+                    <td>${e.placa}</td>
+                    <td>${e.cor}</td>
+                  </tr>`
+          $tabela.innerHTML += linha;
+          console.log(linha);
+        });
+        this.clearData();
+      },
+      clearData: function clearData() {
+        $form.imagem.value = null;
+        $form.marca.value = null;
+        $form.ano.value = null;
+        $form.placa.value = null;
+        $form.cor.value = null;
+      }
+    };
+  }
+
+
+  /* function garagem() {
     var carros = [];
     var $form = doc.querySelector('[data-js="formulario"]');
     var $tabela = doc.querySelector('[data-js="tabela-carros"]');
@@ -77,8 +145,9 @@
       $form.placa.value = null;
       $form.cor.value = null;
     }
-  }
+  } */
 
-  garagem();
+  //garagem();
+  app().init();
 
 })(window, document);
