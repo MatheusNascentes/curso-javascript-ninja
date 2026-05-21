@@ -53,7 +53,7 @@
 
             filledTable: function filledTable() {
                 $tabela.innerHTML = '';
-                carros.forEach((e) => {
+                carros.forEach((e, index) => {
                     var linha = `<tr>
                     <td>${e.imagem}</td>
                     <td>${e.marca}</td>
@@ -61,13 +61,25 @@
                     <td>${e.placa}</td>
                     <td>${e.cor}</td>
                     <td>
-                    <button data-js="deletar">Deletar</button>
+                    <button data-js="deletar" data-index="${index}">Deletar</button>
                     </td>
                   </tr>`
                     $tabela.innerHTML += linha;
                 });
+                var $botoes = doc.querySelectorAll('[data-js="deletar"]');
+                $botoes.forEach((botão) => {
+                    botão.addEventListener('click', this.deleteCar.bind(this));
+                });
+
                 this.clearData();
             },
+
+            deleteCar: function deleteCar(e) {
+                var index = e.target.getAttribute('data-index');
+                carros.splice(index, 1);
+                this.filledTable();
+            },
+
             clearData: function clearData() {
                 $form.imagem.value = null;
                 $form.marca.value = null;
