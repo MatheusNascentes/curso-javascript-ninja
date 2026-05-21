@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localiza</title>
+</head>
+
+<body>
+    <div>
+        <h1>Dados da Empresa</h1>
+        <h1 data-js="empresa" id="empresa"></h1>
+        <h2 data-js="telefone" id="telefone"></h2>
+    </div>
+    <form data-js="formulario">
+        <div>
+            <label for="Imagem">Imagem:</label>
+            <input type="text" name="imagem" id="imagem">
+        </div>
+        <br>
+        <div>
+            <label for="Marca/Modelo">Marca/Modelo:</label>
+            <input type="text" name="marca" id="marca">
+        </div>
+        <br>
+        <div>
+            <label for="Ano">Ano:</label>
+            <input type="text" name="ano" id="ano">
+        </div>
+        <br>
+        <div>
+            <label for="Placa">Placa:</label>
+            <input type="text" name="placa" id="placa">
+        </div>
+        <br>
+        <div>
+            <label for="Cor">Cor:</label>
+            <input type="text" name="cor" id="cor">
+        </div>
+        <br>
+        <div>
+            <button data-js="submit" type="submit">Cadastrar</button>
+        </div>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Imagem</th>
+                <th>Marca/Modelo</th>
+                <th>Ano</th>
+                <th>Placa</th>
+                <th>Cor</th>
+                <th>Deletar</th>
+            </tr>
+        </thead>
+        <tbody data-js="tabela-carros">
+
+        </tbody>
+    </table>
+    <script src="challenge-31.js"></script>
+</body>
+
+</html>
